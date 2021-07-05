@@ -91,7 +91,7 @@ body{
     margin: auto;
     flex-wrap: wrap;
     padding: 5%;
-    background-color: rgba(240, 240, 240, 0.8);
+    background-color: rgba(200, 200, 200, 0.8);
     border-radius: 15px;
     transition: all 0.5s ease;
     border-top: 1px solid white;
@@ -141,22 +141,24 @@ body{
 
 .inputForm .submitButton{
     margin-left: 37%;
-    border: 2px solid #354f52;
-    border-radius: 7px;
+    border: none;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-radius: 15px;
     width: 25%;
     height: 40px;
-    background-color: transparent;
+    background-color: #354f52;
     font-weight: 900;
-    color: #354f52;
+    color: white;
     font-size: 1rem;
     transition: all 0.4s ease;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5), -5px -5px 10px rgba(255,255,255,1);
 }
 
 .inputForm .submitButton:hover{
     cursor: pointer;
-    background-color: #354f52;
-    color: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    background-color: #ffef88;
+    color: #777;
 }
 
 .openFormButton{
@@ -238,7 +240,7 @@ body{
     width: 30%;
     border-radius: 15px;
     padding: 2%;
-    padding-left: 8%;
+    padding-left: 9%;
     margin-right: 3%;
     margin-bottom: 3%;
     background-color: rgb(240, 240, 240);
@@ -265,23 +267,24 @@ body{
 }
 
 .couponList .couponBox .redeemButton{
-    border: 2px solid #354f52;
+    border: none;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
     border-radius: 15px;
     width: 50%;
     height: 30px;
-    background-color: transparent;
-    color: #354f52;
+    background-color: #354f52;
+    color: white;
     font-weight: 900;
-    /* border: 1px solid white;
-    box-shadow: inset 5px 5px 10px rgba(0,0,0,0.4),inset -5px -5px 10px rgba(255,255,255,0.9),  3px 3px 10px rgba(0,0,0,0.4), -3px -3px 10px rgba(255,255,255,0.9); */
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5), -5px -5px 10px rgba(255,255,255,1);
     font-size: 0.8rem;
     margin-right: 5%;
     cursor: pointer;
-    transition: all 0.5s ease;
+    transition: all 0.4s ease;
 }
 .couponList .couponBox .redeemButton:hover{
-    background-color: #354f52;
-    color: white;
+    background-color: #ffef88;
+    color: #777;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
