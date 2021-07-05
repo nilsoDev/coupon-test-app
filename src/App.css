@@ -1,38 +1,465 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+    background-color: #354f52;
+}
+.App{
+    width: 100vw;
+    height: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.headerBox{
+    width: 100vw;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 10%;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding-top: 0px;
+    padding-left: 5%;
+    padding-right: 10%;
+    background: rgba(0,0,0,0.1);
+    color: white;
+    backdrop-filter: blur(10px);
+    z-index: 999;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.headerBox .logo{
+    width: 10%;
+}
+.headerBox nav{
+    display: flex;
 }
 
-.App-link {
-  color: #61dafb;
+.headerBox nav ul{
+    display: flex;
+    justify-content: right;
+    list-style: none;
+    margin: 0;
+    font-size: 1.1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
+.headerBox nav ul li{
+    transition: all 0.5s ease;
+    border-radius: 2rem;
+    padding: 5px 10px 5px 10px;
+}
+
+.headerBox nav ul li:hover{
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+
+.headerBox nav ul li:not(:last-child){
+    margin-right: 10%;
+}
+
+.formBlur{
+    position: fixed;
+    top:0;
+    left:0;
+    height: 100vh;
+    width: 100%;
+    background-color:transparent;
+    z-index: 99;
+    visibility: hidden;
+}
+
+.showBlur{
+    visibility: visible;
+}
+
+.inputForm {
+    position: fixed;
+    top:30%;
+    left:20%;
+    z-index: 999;
+    display: flex;
+    transform: scale(0.5);
+    opacity: 0;
+    justify-content: space-between;
+    width: 60vw;
+    margin: auto;
+    flex-wrap: wrap;
+    padding: 5%;
+    background-color: rgba(240, 240, 240, 0.8);
+    border-radius: 15px;
+    transition: all 0.5s ease;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+}
+
+.open{
+    display: flex;
+    transform: scale(1);
+    opacity: 1;
+}
+
+.inputForm .fieldbox{
+    width: 48%; 
+    margin-bottom: 2%;
+    height: 50px;
+}
+
+.inputForm .fieldbox .inputfield{
+    border:none;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+    width: 100%;
+    height: 25px;
+    padding-left: 20px;
+    margin-bottom: 3%;
+    transition: all 0.3s ease;
+}
+
+.inputForm .fieldbox .inputfield:focus{
+    outline: none;
+    border-bottom: 2px solid #ffef88;
+}
+
+.inputForm .fieldbox .error-msg{
+    color: red;
+    font-size: 12px;
+    position: relative;
+    top: -5px;
+    margin: 0;
+}
+
+.inputForm .row{
+    width: 100%;
+    margin-bottom: 3%;
+}
+
+.inputForm .submitButton{
+    margin-left: 37%;
+    border: 2px solid #354f52;
+    border-radius: 7px;
+    width: 25%;
+    height: 40px;
+    background-color: transparent;
+    font-weight: 900;
+    color: #354f52;
+    font-size: 1rem;
+    transition: all 0.4s ease;
+}
+
+.inputForm .submitButton:hover{
+    cursor: pointer;
+    background-color: #354f52;
+    color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.openFormButton{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    height: 60px;
+    width: 60px;
+    border:none;
+    background: #ffef88;
+    color: #81643A;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 10%;
+    right: 5%;
+    font-size: 2rem;
+    font-weight: 500;
+    z-index: 999;
+    cursor: pointer;
     transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    box-shadow: 0 0 10px rgba(0,0,0,0.7);
+    transition: all 0.5s cubic-bezier(0.85, 0.04, 0.43, 1.6);
+}
+
+.couponList{
+    width: 80vw;
+    height: auto;
+    margin: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    /*transition: filter 0.3s ease-in-out;*/
+    transition: all 0.3s ease-in-out;
+}
+
+.blur{
+    opacity: 0.6;
+    filter: blur(10px);
+    /*transition: filter 0.3s ease-in-out;*/
+    transition: all 0.3s ease-in-out;
+}
+
+.couponList .listHeader{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    padding-bottom: 10%;
+}
+
+.couponList .listHeader .listHeading{
+    text-align: center;
+    font-size: 2.9rem;
+}
+.couponList .listHeader .searchField{
+    width: 40%;
+    font-size: 1rem;
+    height: 30%;
+    border-radius: 7px;
+    border: 2px solid rgb(240, 240, 240);
+    text-align: center;
+    transition: border 0.5s ease;
+}
+
+.couponList .listHeader .searchField:focus{
+    border: 2px solid #ffef88;
+    outline: none ;
+    transition: border 0.5s ease;
+}
+
+.couponList .couponBox{
+    display: flex;
+    flex-wrap: wrap;
+    width: 30%;
+    border-radius: 15px;
+    padding: 2%;
+    padding-left: 8%;
+    margin-right: 3%;
+    margin-bottom: 3%;
+    background-color: rgb(240, 240, 240);
+    background: linear-gradient(130deg, #eee, #aaa);
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    box-shadow: 0 0 10PX rgba(0,0,0,0.5);
+}
+
+.couponList .couponBox .shopName{
+    width: 100%;
+    margin: 0;
+}
+
+.couponList .couponBox .infoBox{
+    width: 100%;
+    display: inline-flex;
+    font-size: 1rem;
+}
+
+.couponList .couponBox .infoBox .couponValue{
+    margin-right: 10%;
+    font-size: 1rem;
+}
+
+.couponList .couponBox .redeemButton{
+    border: 2px solid #354f52;
+    border-radius: 15px;
+    width: 50%;
+    height: 30px;
+    background-color: transparent;
+    color: #354f52;
+    font-weight: 900;
+    /* border: 1px solid white;
+    box-shadow: inset 5px 5px 10px rgba(0,0,0,0.4),inset -5px -5px 10px rgba(255,255,255,0.9),  3px 3px 10px rgba(0,0,0,0.4), -3px -3px 10px rgba(255,255,255,0.9); */
+    font-size: 0.8rem;
+    margin-right: 5%;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+.couponList .couponBox .redeemButton:hover{
+    background-color: #354f52;
+    color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.hide{
+    opacity: 0;
+    transform: scale(0);
+    transition: all ease-in-out 0.3s;
+    
+}
+
+.couponList .couponBox .couponCode{
+    margin: 0;
+    line-height: 1.7;
+    opacity: 0;
+    position: relative;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.show{
+    opacity: 1 !important;
+    position: relative;
+    left: -39% !important;
+}
+
+/* Footer */
+footer{
+    position: relative;
+    bottom: -10px;
+    width: 100%;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 50px 250px 40px 250px ;
+    background-color: #313F41;
+    color: white;
+}
+
+.footerArea{
+    height: 100%;
+    width: 15%;
+}
+
+.footer-header{
+    margin-bottom: 15px;
+}
+
+footer p{
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+footer a{
+    text-decoration: none;
+    color: white;
+    transition: all 0.5s cubic-bezier(0.85, 0.04, 0.43, 1.6);
+}
+
+footer a:hover{
+    cursor: pointer;
+    margin-left: 9px;
+}
+
+#footer-hso-logo{
+    width: 100%;
+    height: auto;
+}
+
+
+/*Smartphone*/
+@media only screen and (max-width: 577px){
+
+    .openFormButton{
+        right: 10%;
+        bottom: 5%;
+    }
+
+    .inputForm{
+        position: fixed;
+        border-radius: 2rem;
+        top:15%;
+        left:10%;
+        width: 80%;
+        height: 60%;
+        padding-top: 10%;
+    }
+
+    .inputForm .fieldbox{
+        width: 100%;
+        height: 30px;
+        border-radius: 0;
+    }
+
+    .inputForm .row{
+        margin-top: -3%;
+    }
+
+    .inputForm .submitButton{
+        width: 100%;
+        border-radius: 2rem;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .couponList .couponBox{
+        width: 100%;
+        margin:0;
+        margin-bottom: 8%;
+        padding: 6%;
+        padding-left: 20%;
+    }
+
+    .couponList .couponBox .shopName{
+        font-size: 1.6rem;
+    }
+
+    .couponList .couponBox .redeemButton{
+        width: 70%;
+        font-size: 1.1rem;
+        height: 35px;
+    }
+
+    .couponList .listHeader{
+        width: 100%;
+        margin-bottom: 20%;
+        margin-top: 20% ;
+    }
+
+    .couponList .listHeader .listHeading {
+        font-size: 2.7rem;
+    }
+
+
+    .couponList .listHeader .searchField{
+        width: 100%;
+        border-radius: 10px;
+        height: 20%;
+    }
+
+    .headerBox .logo{
+        width: 40%;
+    }
+    
+    .headerBox nav ul{
+        justify-content: center;
+        font-size: 0.9rem;
+    }
+
+    .headerBox nav ul li{
+        margin-right: 15%;
+    }
+
+    /*Footer*/
+    footer{
+        padding: 30px;
+        flex-direction: column;
+        padding-left: 26%;
+        padding-bottom: 80px;
+        font-size: 0.8rem;
+    }
+
+    .footerArea{
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .footer-header{
+        margin-bottom: 10px;
+    }
+
+    #footer-hso-logo-area{
+        margin-top: 30px;
+    }
+
+    #footer-hso-logo{
+        width: 65%;
+        height: auto;
+    }
 }
