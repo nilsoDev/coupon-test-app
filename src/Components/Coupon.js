@@ -24,9 +24,9 @@ const Coupon = ({val}) =>{
       handleToggle();
       hideButton();
       if(val.multipleTimes == false){
-        Axios.delete(`http://localhost:3001/delete/${id}`);
+        Axios.delete(`https://coupon-test-app.herokuapp.com/delete/${id}`);
       } else {
-        Axios.put(`http://localhost:3001/countAdd/${id}`);
+        Axios.put(`https://coupon-test-app.herokuapp.com/countAdd/${id}`);
       }
   }
 

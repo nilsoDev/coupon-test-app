@@ -11,7 +11,7 @@ const Form = ({isActive, shopName, setShopName, couponCode, setCouponCode, descr
 
     //Add Coupon to the Database in the backend
     const addToList = ()=>{  
-        Axios.post("http://localhost:3001/add", //Send post request with JSON Object to the route in backend
+        Axios.post("https://coupon-test-app.herokuapp.com/add", //Send post request with JSON Object to the route in backend
         {shopName: shopName, couponCode: couponCode, description: description, multipleTimes: multipleTimes, couponValue: couponValue}).then((response)=>{
             setCouponList([...couponList, {_id: response.data._id, shopName: shopName, couponCode: couponCode, description: description, multipleTimes: multipleTimes, couponValue: couponValue, useCount: 0}]);
           });

@@ -33,7 +33,7 @@ function App() {
 
   //Effect Hook
   useEffect(()=>{ 
-    Axios.get("http://localhost:3001/read").then((response)=>{ //Send request to route in backend
+    Axios.get("https://coupon-test-app.herokuapp.com/read").then((response)=>{ //Send request to route in backend
     setCouponList(response.data); //Handle data from the response
     });
   },[]); //Start useEffect Hook as soon as page loads
